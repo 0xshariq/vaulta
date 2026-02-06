@@ -1,16 +1,16 @@
 [package]
-name = "bunker"
-version = "1.1.0"
+name = "vaulta"
+version = "1.0.0"
 edition = "2024"
-authors = ["Sabir Khan <simplysabir@gmail.com>"]
+authors = ["Sharique Chaudhary <khanshariq92213@gmail.com>"]
 description = "Dead simple, secure password management"
 license = "MIT"
-repository = "https://github.com/simplysabir/bunker"
+repository = "https://github.com/0xshariq/vaulta"
 keywords = ["password", "security", "vault", "cli"]
 categories = ["command-line-utilities", "cryptography"]
 
 [[bin]]
-name = "bunker"
+name = "vaulta"
 path = "src/main.rs"
 
 [dependencies]
@@ -27,7 +27,7 @@ chrono = { version = "0.4", features = ["serde"] }
 colored = "2.1"
 dialoguer = "0.11"
 indicatif = "0.17"
-skim = "0.10"  # Fuzzy finder
+skim = "0.10"                                            # Fuzzy finder
 clipboard = "0.5"
 rpassword = "7.3"
 which = "6.0"
