@@ -1,23 +1,23 @@
 version: '3.8'
 
 services:
-  bunker:
+  vaulta:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: bunker-password-manager
+    container_name: vaulta-password-manager
     volumes:
       # Mount vaults directory for persistent storage
       - ./vaults:/app/vaults
       # Mount SSH keys for Git operations (read-only)
-      - ~/.ssh:/home/bunker/.ssh:ro
+      - ~/.ssh:/home/vaulta/.ssh:ro
       # Mount GPG keys if using GPG encryption
-      - ~/.gnupg:/home/bunker/.gnupg:ro
+      - ~/.gnupg:/home/vaulta/.gnupg:ro
     environment:
       - RUST_LOG=info
-      - BUNKER_VAULT_PATH=/app/vaults
-      - BUNKER_SESSION_TIMEOUT=86400
-      - BUNKER_CLIPBOARD_TIMEOUT=45
+      - vaulta_VAULT_PATH=/app/vaults
+      - vaulta_SESSION_TIMEOUT=86400
+      - vaulta_CLIPBOARD_TIMEOUT=45
     working_dir: /app
     # Use host networking for clipboard access (Linux/macOS)
     network_mode: host
@@ -34,41 +34,41 @@ services:
           cpus: '0.1'
     # Health check
     healthcheck:
-      test: ["CMD", "bunker", "--help"]
+      test: ["CMD", "vaulta", "--help"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
     # Labels for organization
     labels:
-      - "com.bunker.description=Secure Password Manager"
-      - "com.bunker.version=1.0.0"
-      - "com.bunker.maintainer=your-email@example.com"
+      - "com.vaulta.description=Secure Password Manager"
+      - "com.vaulta.version=1.0.0"
+      - "com.vaulta.maintainer=your-email@example.com"
 
   # Optional: Development service with hot reload
-  bunker-dev:
+  vaulta-dev:
     build:
       context: .
       dockerfile: Dockerfile
       target: builder
-    container_name: bunker-dev
+    container_name: vaulta-dev
     volumes:
       - ./vaults:/app/vaults
       - ./src:/app/src
-      - ~/.ssh:/home/bunker/.ssh:ro
+      - ~/.ssh:/home/vaulta/.ssh:ro
     environment:
       - RUST_LOG=debug
-      - BUNKER_VAULT_PATH=/app/vaults
+      - vaulta_VAULT_PATH=/app/vaults
     working_dir: /app
     command: ["sh", "-c", "cargo watch -x run"]
     profiles:
       - dev
 
 volumes:
-  bunker-vaults:
+  vaulta-vaults:
     driver: local
 
 networks:
   default:
-    name: bunker-network
+    name: vaulta-network
     driver: bridge

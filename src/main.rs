@@ -23,8 +23,8 @@ async fn main() -> Result<()> {
         None => {
             // Show help or interactive mode
             cli::CliDisplay::print_banner();
-            println!("{}", "Welcome to Bunker! 🔐".green().bold());
-            println!("Use 'bunker --help' to see available commands\n");
+            println!("{}", "Welcome to vaulta! 🔐".green().bold());
+            println!("Use 'vaulta --help' to see available commands\n");
 
             // Check if default vault exists
             match storage::Storage::new(None) {
@@ -34,18 +34,18 @@ async fn main() -> Result<()> {
 
                         // Quick access menu
                         println!("\nQuick actions:");
-                        println!("  {} List passwords", "bunker list".white().bold());
-                        println!("  {} Add password", "bunker add <name>".white().bold());
-                        println!("  {} Get password", "bunker get <name>".white().bold());
-                        println!("  {} Search passwords", "bunker search".white().bold());
+                        println!("  {} List passwords", "vaulta list".white().bold());
+                        println!("  {} Add password", "vaulta add <name>".white().bold());
+                        println!("  {} Get password", "vaulta get <name>".white().bold());
+                        println!("  {} Search passwords", "vaulta search".white().bold());
                     } else {
                         println!("{}", "No vault found. Initialize one with:".yellow());
-                        println!("  {}", "bunker init <vault-name>".white().bold());
+                        println!("  {}", "vaulta init <vault-name>".white().bold());
                     }
                 }
                 Err(_) => {
                     println!("{}", "Initialize your first vault with:".yellow());
-                    println!("  {}", "bunker init <vault-name>".white().bold());
+                    println!("  {}", "vaulta init <vault-name>".white().bold());
                 }
             }
             return Ok(());

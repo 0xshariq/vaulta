@@ -55,7 +55,7 @@ impl Git {
             .find_tree(tree_id)
             .map_err(|e| anyhow!("Failed to find tree: {}", e))?;
 
-        let signature = Signature::now("bunker", "bunker@localhost")
+        let signature = Signature::now("vaulta", "vaulta@localhost")
             .map_err(|e| anyhow!("Failed to create signature: {}", e))?;
 
         // Get parent commit if exists

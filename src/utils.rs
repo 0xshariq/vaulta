@@ -234,14 +234,14 @@ fn generate_session_password() -> String {
 /// Cache session password in memory (environment variable for this process)
 fn cache_session_password(password: &str) -> Result<()> {
     unsafe {
-        std::env::set_var("BUNKER_SESSION_KEY", password);
+        std::env::set_var("vaulta_SESSION_KEY", password);
     }
     Ok(())
 }
 
 /// Get cached session password from memory
 fn get_cached_session_password() -> Result<String> {
-    std::env::var("BUNKER_SESSION_KEY").map_err(|_| anyhow!("No cached session password"))
+    std::env::var("vaulta_SESSION_KEY").map_err(|_| anyhow!("No cached session password"))
 }
 
 /// Parse key-value pairs from string

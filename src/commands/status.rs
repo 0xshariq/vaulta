@@ -20,7 +20,7 @@ pub async fn execute(vault: Option<String>) -> Result<()> {
     println!("{}", "╔══════════════════════════════════════╗".cyan());
     println!(
         "{}",
-        "║         BUNKER VAULT STATUS          ║".cyan().bold()
+        "║         vaulta VAULT STATUS          ║".cyan().bold()
     );
     println!("{}", "╚══════════════════════════════════════╝".cyan());
     println!();

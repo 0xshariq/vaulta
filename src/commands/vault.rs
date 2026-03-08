@@ -60,7 +60,7 @@ async fn list_vaults() -> Result<()> {
         println!("{}", "No vaults found".yellow());
         println!(
             "Create your first vault with: {}",
-            "bunker init".white().bold()
+            "vaulta init".white().bold()
         );
         return Ok(());
     }

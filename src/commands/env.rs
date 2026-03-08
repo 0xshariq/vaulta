@@ -9,7 +9,7 @@ pub async fn execute(key: String, var_name: Option<String>, vault: Option<String
     let storage = Storage::new(vault)?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     // Get master key
@@ -34,7 +34,7 @@ pub async fn execute(key: String, var_name: Option<String>, vault: Option<String
     eprintln!(
         "{} Use: {}",
         "💡".yellow(),
-        format!("eval \"$(bunker env {})\"", key).cyan()
+        format!("eval \"$(vaulta env {})\"", key).cyan()
     );
 
     Ok(())

@@ -9,7 +9,7 @@ pub async fn execute(key: String, force: bool, vault: Option<String>) -> Result<
     let storage = Storage::new(vault)?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     // Confirm deletion

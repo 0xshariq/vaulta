@@ -12,7 +12,7 @@ pub async fn execute(
     let storage = Storage::new(vault)?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     let vault_path = storage.get_vault_path();
@@ -21,7 +21,7 @@ pub async fn execute(
     if !Git::is_repo(vault_path)? {
         println!(
             "{}",
-            "No version history available. Initialize git with 'bunker init' to track changes."
+            "No version history available. Initialize git with 'vaulta init' to track changes."
                 .yellow()
         );
         return Ok(());

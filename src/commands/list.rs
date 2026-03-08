@@ -8,7 +8,7 @@ pub async fn execute(path: Option<String>, flat: bool, vault: Option<String>) ->
     let storage = Storage::new(vault)?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     // List all entries
@@ -18,7 +18,7 @@ pub async fn execute(path: Option<String>, flat: bool, vault: Option<String>) ->
         println!("{}", "No passwords stored yet".yellow());
         println!(
             "Add your first password with: {}",
-            "bunker add <key>".white().bold()
+            "vaulta add <key>".white().bold()
         );
         return Ok(());
     }

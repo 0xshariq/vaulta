@@ -11,7 +11,7 @@ pub async fn execute(query: Option<String>, vault: Option<String>) -> Result<()>
     let storage = Storage::new(vault.clone())?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     // Get master key for decryption

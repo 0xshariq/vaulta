@@ -51,10 +51,10 @@ impl Storage {
         &self.vault_name
     }
 
-    /// Get base directory for bunker
+    /// Get base directory for vaulta
     pub fn base_dir() -> Result<PathBuf> {
         let home = dirs::home_dir().ok_or_else(|| anyhow!("Could not determine home directory"))?;
-        Ok(home.join(".bunker"))
+        Ok(home.join(".vaulta"))
     }
 
     /// Initialize a new vault
@@ -451,7 +451,7 @@ impl Storage {
 
         // Create final export
         let export = serde_json::json!({
-            "bunker_export": true,
+            "vaulta_export": true,
             "version": "1.0",
             "encrypted_data": BASE64.encode(&ciphertext),
             "nonce": BASE64.encode(&nonce),
@@ -466,9 +466,9 @@ impl Storage {
     pub fn import_vault(data: &[u8], password: &str, vault_name: &str) -> Result<()> {
         let import_data: serde_json::Value = serde_json::from_slice(data)?;
 
-        // Verify it's a bunker export
-        if !import_data["bunker_export"].as_bool().unwrap_or(false) {
-            return Err(anyhow!("Invalid bunker export file"));
+        // Verify it's a vaulta export
+        if !import_data["vaulta_export"].as_bool().unwrap_or(false) {
+            return Err(anyhow!("Invalid vaulta export file"));
         }
 
         // Decode encrypted data

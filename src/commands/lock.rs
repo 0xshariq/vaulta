@@ -11,7 +11,7 @@ pub async fn execute(vault: Option<String>) -> Result<()> {
 
     // Clear cached session password
     unsafe {
-        std::env::remove_var("BUNKER_SESSION_KEY");
+        std::env::remove_var("vaulta_SESSION_KEY");
     }
 
     println!("{} Vault locked successfully", "🔒".green().bold());

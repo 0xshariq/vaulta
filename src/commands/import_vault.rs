@@ -64,22 +64,22 @@ pub async fn execute(file: PathBuf, password: String, name: String) -> Result<()
     println!(
         "  {} List all passwords: {}",
         "•".blue(),
-        "bunker list".white().bold()
+        "vaulta list".white().bold()
     );
     println!(
         "  {} Get a password: {}",
         "•".blue(),
-        "bunker get <name>".white().bold()
+        "vaulta get <name>".white().bold()
     );
     println!(
         "  {} Add new password: {}",
         "•".blue(),
-        "bunker add <name>".white().bold()
+        "vaulta add <name>".white().bold()
     );
     println!(
         "  {} Search passwords: {}",
         "•".blue(),
-        "bunker search".white().bold()
+        "vaulta search".white().bold()
     );
 
     // Show unlock info
@@ -87,7 +87,7 @@ pub async fn execute(file: PathBuf, password: String, name: String) -> Result<()
         "\n{} Your vault is now unlocked for 24 hours",
         "⏰".yellow()
     );
-    println!("Run 'bunker unlock' to extend or 'bunker lock' to secure immediately");
+    println!("Run 'vaulta unlock' to extend or 'vaulta lock' to secure immediately");
 
     Ok(())
 }

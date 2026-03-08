@@ -8,7 +8,7 @@ pub async fn execute(vault: Option<String>) -> Result<()> {
     let storage = Storage::new(vault)?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     let vault_path = storage.get_vault_path();
@@ -22,7 +22,7 @@ pub async fn execute(vault: Option<String>) -> Result<()> {
     let config = storage.load_config()?;
     if config.git_remote.is_none() {
         return Err(anyhow!(
-            "No git remote configured. Add one with 'bunker vault add-remote <url>'"
+            "No git remote configured. Add one with 'vaulta vault add-remote <url>'"
         ));
     }
 

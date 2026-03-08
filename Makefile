@@ -2,7 +2,7 @@
 
 # Default target
 help:
-	@echo "🔐 Bunker Password Manager - Available Commands:"
+	@echo "🔐 vaulta Password Manager - Available Commands:"
 	@echo ""
 	@echo "📦 Build & Run:"
 	@echo "  build        Build the release binary"
@@ -22,14 +22,14 @@ help:
 
 # Build the release binary
 build:
-	@echo "🔨 Building Bunker..."
+	@echo "🔨 Building vaulta..."
 	cargo build --release
-	@echo "✅ Build complete! Binary: ./target/release/bunker"
+	@echo "✅ Build complete! Binary: ./target/release/vaulta"
 
 # Run the binary
 run: build
-	@echo "🚀 Running Bunker..."
-	./target/release/bunker
+	@echo "🚀 Running vaulta..."
+	./target/release/vaulta
 
 # Development mode
 dev:
@@ -51,7 +51,7 @@ test:
 # Docker build
 docker-build:
 	@echo "🐳 Building Docker image..."
-	docker build -t bunker:latest .
+	docker build -t vaulta:latest .
 	@echo "✅ Docker build complete!"
 
 # Docker run
@@ -59,9 +59,9 @@ docker-run: docker-build
 	@echo "🐳 Running Docker container..."
 	docker run -it --rm \
 		-v $(PWD)/vaults:/app/vaults \
-		-v ~/.ssh:/home/bunker/.ssh:ro \
+		-v ~/.ssh:/home/vaulta/.ssh:ro \
 		--network host \
-		bunker:latest
+		vaulta:latest
 
 # Docker development
 docker-dev:
@@ -72,7 +72,7 @@ docker-dev:
 docker-clean:
 	@echo "🧹 Cleaning Docker artifacts..."
 	docker system prune -f
-	docker image rm bunker:latest 2>/dev/null || true
+	docker image rm vaulta:latest 2>/dev/null || true
 	@echo "✅ Docker clean complete!"
 
 # Install dependencies
@@ -100,15 +100,15 @@ setup: install fmt lint
 # Quick vault operations
 init-vault:
 	@echo "🔐 Initializing vault..."
-	./target/release/bunker init my-vault
+	./target/release/vaulta init my-vault
 
 add-password:
 	@echo "🔑 Adding password..."
-	./target/release/bunker add github
+	./target/release/vaulta add github
 
 list-passwords:
 	@echo "📋 Listing passwords..."
-	./target/release/bunker list
+	./target/release/vaulta list
 
 # Show help by default
 .DEFAULT_GOAL := help

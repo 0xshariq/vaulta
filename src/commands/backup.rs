@@ -10,7 +10,7 @@ pub async fn execute(destination: Option<PathBuf>, vault: Option<String>) -> Res
     let storage = Storage::new(vault)?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     // Determine backup destination
@@ -18,7 +18,7 @@ pub async fn execute(destination: Option<PathBuf>, vault: Option<String>) -> Res
         dest
     } else {
         let timestamp = Utc::now().format("%Y%m%d_%H%M%S");
-        let backup_name = format!("bunker_backup_{}.tar.gz", timestamp);
+        let backup_name = format!("vaulta_backup_{}.tar.gz", timestamp);
         PathBuf::from(&backup_name)
     };
 

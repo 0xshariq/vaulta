@@ -1,7 +1,7 @@
 use thiserror::Error;
 
 #[derive(Error, Debug)]
-pub enum BunkerError {
+pub enum vaultaError {
     #[error("Vault not found: {0}")]
     VaultNotFound(String),
 
@@ -48,8 +48,8 @@ pub enum BunkerError {
     Other(String),
 }
 
-impl From<anyhow::Error> for BunkerError {
+impl From<anyhow::Error> for vaultaError {
     fn from(err: anyhow::Error) -> Self {
-        BunkerError::Other(err.to_string())
+        vaultaError::Other(err.to_string())
     }
 }

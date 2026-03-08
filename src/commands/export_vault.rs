@@ -15,7 +15,7 @@ pub async fn execute(
     let storage = Storage::new(vault)?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     // Export vault with the provided password
@@ -25,7 +25,7 @@ pub async fn execute(
     let output_path = output.unwrap_or_else(|| {
         let vault_name = storage.get_vault_name();
         let timestamp = chrono::Utc::now().format("%Y%m%d_%H%M%S");
-        PathBuf::from(format!("{}_{}.bunker", vault_name, timestamp))
+        PathBuf::from(format!("{}_{}.vaulta", vault_name, timestamp))
     });
 
     // Write to file
@@ -44,7 +44,7 @@ pub async fn execute(
     println!(
         "  2. Run: {}",
         format!(
-            "bunker vault import {} <password> <vault-name>",
+            "vaulta vault import {} <password> <vault-name>",
             output_path.file_name().unwrap().to_string_lossy()
         )
         .white()
@@ -55,7 +55,7 @@ pub async fn execute(
     // Offer to generate import command
     if utils::prompt_confirm("Generate import command for easy copy-paste?")? {
         let import_cmd = format!(
-            "bunker vault import {} {} {}",
+            "vaulta vault import {} {} {}",
             output_path.file_name().unwrap().to_string_lossy(),
             password,
             storage.get_vault_name()

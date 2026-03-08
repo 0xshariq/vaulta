@@ -310,7 +310,7 @@ impl CliDisplay {
         println!(
             "{} {} {}",
             "🔐".blue(),
-            "BUNKER".cyan().bold(),
+            "vaulta".cyan().bold(),
             "Secure Password Manager".white()
         );
         println!("{}", "Fast • Secure • Simple".dimmed());
@@ -318,7 +318,7 @@ impl CliDisplay {
     }
 
     pub fn print_welcome() {
-        println!("{}", "Welcome to Bunker!".green().bold());
+        println!("{}", "Welcome to vaulta!".green().bold());
         println!("Your passwords are locked down tight.\n");
     }
 
@@ -332,17 +332,17 @@ impl CliDisplay {
         println!(
             "  {} Add your first password: {}",
             "→".blue(),
-            format!("bunker add <key>").white().bold()
+            format!("vaulta add <key>").white().bold()
         );
         println!(
             "  {} List passwords: {}",
             "→".blue(),
-            format!("bunker list").white().bold()
+            format!("vaulta list").white().bold()
         );
         println!(
             "  {} Copy password: {}",
             "→".blue(),
-            format!("bunker copy <key>").white().bold()
+            format!("vaulta copy <key>").white().bold()
         );
     }
 

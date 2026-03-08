@@ -8,7 +8,7 @@ pub async fn execute(vault: Option<String>, duration: Option<u64>) -> Result<()>
     let storage = Storage::new(vault)?;
 
     if !storage.vault_exists() {
-        return Err(anyhow!("Vault not initialized. Run 'bunker init' first"));
+        return Err(anyhow!("Vault not initialized. Run 'vaulta init' first"));
     }
 
     // Get master key (this will create a session if needed)

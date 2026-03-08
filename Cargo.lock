@@ -218,45 +218,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "46c5e41b57b8bba42a04676d81cb89e9ee8e859a1a66f80a5a72e1cb76b34d43"
 
 [[package]]
-name = "bunker"
-version = "1.1.0"
-dependencies = [
- "anyhow",
- "argon2",
- "base64",
- "chacha20poly1305",
- "chrono",
- "clap 4.5.45",
- "clipboard",
- "colored",
- "dialoguer",
- "dirs",
- "flate2",
- "git2",
- "hex",
- "indicatif",
- "pretty_assertions",
- "qrcode",
- "rand 0.8.5",
- "regex",
- "rpassword",
- "serde",
- "serde_json",
- "sha2",
- "shell-words",
- "skim",
- "tar",
- "tempdir",
- "tempfile",
- "thiserror",
- "tokio",
- "toml",
- "uuid",
- "which",
- "zeroize",
-]
-
-[[package]]
 name = "bytemuck"
 version = "1.23.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2242,6 +2203,45 @@ dependencies = [
  "js-sys",
  "serde",
  "wasm-bindgen",
+]
+
+[[package]]
+name = "vaulta"
+version = "1.0.0"
+dependencies = [
+ "anyhow",
+ "argon2",
+ "base64",
+ "chacha20poly1305",
+ "chrono",
+ "clap 4.5.45",
+ "clipboard",
+ "colored",
+ "dialoguer",
+ "dirs",
+ "flate2",
+ "git2",
+ "hex",
+ "indicatif",
+ "pretty_assertions",
+ "qrcode",
+ "rand 0.8.5",
+ "regex",
+ "rpassword",
+ "serde",
+ "serde_json",
+ "sha2",
+ "shell-words",
+ "skim",
+ "tar",
+ "tempdir",
+ "tempfile",
+ "thiserror",
+ "tokio",
+ "toml",
+ "uuid",
+ "which",
+ "zeroize",
 ]
 
 [[package]]
