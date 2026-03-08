@@ -1,23 +1,23 @@
-# 🔐 BUNKER
+# 🔐 VAULTA
 
 > **Lightning-fast, secure password management that just works.**
 
 [![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)](https://rust-lang.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)](https://github.com/simplysabir/bunker)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)](https://github.com/0xshariq/vaulta)
 
 ---
 
-## ⚡ Why Bunker?
+## ⚡ Why Vaulta?
 
-**Bunker is the password manager that gets out of your way.** Built in Rust for blazing performance and iron-clad security, it's designed for developers who value speed, simplicity, and reliability.
+**vaulta is the password manager that gets out of your way.** Built in Rust for blazing performance and iron-clad security, it's designed for developers who value speed, simplicity, and reliability.
 
 ### 🚀 **Setup in 30 seconds**
 ```bash
 # Install and initialize in one go
-cargo install bunker
-bunker init my-vault
-bunker add github
+cargo install vaulta
+vaulta init my-vault
+vaulta add github
 # Done! Your first password is stored and encrypted.
 ```
 
@@ -44,21 +44,21 @@ bunker add github
 ### Local Development
 ```bash
 # Clone and build
-git clone https://github.com/simplysabir/bunker.git
-cd bunker
+git clone https://github.com/0xshariq/vaulta.git
+cd vaulta
 cargo build --release
 
 # Initialize your first vault
-./target/release/bunker init my-vault
+./target/release/vaulta init my-vault
 
 # Add your first password
-./target/release/bunker add github
+./target/release/vaulta add github
 
 # List all passwords
-./target/release/bunker list
+./target/release/vaulta list
 
 # Copy password to clipboard
-./target/release/bunker copy github
+./target/release/vaulta copy github
 ```
 
 ### Docker (Recommended for Production)
@@ -67,8 +67,8 @@ cargo build --release
 docker-compose up --build
 
 # Or build manually
-docker build -t bunker .
-docker run -it --rm -v $(pwd)/vaults:/app/vaults bunker init my-vault
+docker build -t vaulta .
+docker run -it --rm -v $(pwd)/vaults:/app/vaults vaulta init my-vault
 ```
 
 ---
@@ -91,26 +91,26 @@ docker run -it --rm -v $(pwd)/vaults:/app/vaults bunker init my-vault
 
 ### Essential Commands
 ```bash
-bunker init <vault>          # Create new vault
-bunker add <key>             # Add password
-bunker get <key>             # View password
-bunker copy <key>            # Copy to clipboard
-bunker list                  # List all entries
-bunker search <query>        # Search entries
-bunker edit <key>            # Edit entry
-bunker delete <key>          # Remove entry
+vaulta init <vault>          # Create new vault
+vaulta add <key>             # Add password
+vaulta get <key>             # View password
+vaulta copy <key>            # Copy to clipboard
+vaulta list                  # List all entries
+vaulta search <query>        # Search entries
+vaulta edit <key>            # Edit entry
+vaulta delete <key>          # Remove entry
 ```
 
 ### Advanced Commands
 ```bash
-bunker vault use <name>      # Switch vaults
-bunker vault export          # Export vault
-bunker vault import <file>   # Import vault
-bunker git status            # Git status
-bunker git commit            # Commit changes
-bunker git push              # Push to remote
-bunker backup                # Create backup
-bunker restore <backup>      # Restore from backup
+vaulta vault use <name>      # Switch vaults
+vaulta vault export          # Export vault
+vaulta vault import <file>   # Import vault
+vaulta git status            # Git status
+vaulta git commit            # Commit changes
+vaulta git push              # Push to remote
+vaulta backup                # Create backup
+vaulta restore <backup>      # Restore from backup
 ```
 
 ---
@@ -126,17 +126,17 @@ RUN cargo build --release
 
 FROM alpine:latest
 RUN apk add --no-cache git
-COPY --from=builder /app/target/release/bunker /usr/local/bin/
+COPY --from=builder /app/target/release/vaulta /usr/local/bin/
 WORKDIR /app
 VOLUME ["/app/vaults"]
-ENTRYPOINT ["bunker"]
+ENTRYPOINT ["vaulta"]
 ```
 
 ### Docker Compose
 ```yaml
 version: '3.8'
 services:
-  bunker:
+  vaulta:
     build: .
     volumes:
       - ./vaults:/app/vaults
@@ -163,7 +163,7 @@ docker-compose.yml
 
 ### Vault Structure
 ```
-~/.bunker/
+~/.vaulta/
 ├── config.toml          # Global configuration
 ├── vaults/
 │   ├── my-vault/
@@ -177,9 +177,9 @@ docker-compose.yml
 
 ### Environment Variables
 ```bash
-BUNKER_VAULT_NAME=my-vault    # Default vault
-BUNKER_SESSION_TIMEOUT=86400  # Session timeout (seconds)
-BUNKER_CLIPBOARD_TIMEOUT=45   # Clipboard clear timeout
+vaulta_VAULT_NAME=my-vault    # Default vault
+vaulta_SESSION_TIMEOUT=86400  # Session timeout (seconds)
+vaulta_CLIPBOARD_TIMEOUT=45   # Clipboard clear timeout
 ```
 
 ---
@@ -207,8 +207,8 @@ We love contributions! Here's how to get started:
 
 ### Development Setup
 ```bash
-git clone https://github.com/simplysabir/bunker.git
-cd bunker
+git clone https://github.com/0xshariq/vaulta.git
+cd vaulta
 cargo build
 cargo test
 cargo fmt
@@ -225,8 +225,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Ready to secure your digital life?** 🚀
 
 ```bash
-cargo install bunker
-bunker init my-vault
+cargo install vaulta
+vaulta init my-vault
 ```
 
-*Questions? [Open an issue](https://github.com/simplysabir/bunker/issues) or [join our discussions](https://github.com/simplysabir/bunker/discussions)!*
+*Questions? [Open an issue](https://github.com/0xshariq/vaulta/issues) or [join our discussions](https://github.com/0xshariq/vaulta/discussions)!*
